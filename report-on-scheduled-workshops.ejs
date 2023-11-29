@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Report on Scheduled Workshops</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Scheduled Workshops</h1>
+    <% workshops.forEach(workshop => { %>
+        <div>
+            <h2><%= workshop.name %></h2>
+            <p><%= workshop.description %></p>
+            <% workshop.schedule.forEach(session => { %>
+                <div>Date: <%= new Date(session.date).toLocaleDateString() %>, Time: <%= session.time %></div>
+            <% }) %>
+        </div>
+    <% }) %>
+    <a href="/">Back to Home</a>
+</body>
+</html>

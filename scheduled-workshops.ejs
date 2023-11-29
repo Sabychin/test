@@ -1,0 +1,24 @@
+<!-- scheduled-workshops.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scheduled Workshops</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Scheduled Workshops</h1>
+    <% workshops.forEach(workshop => { %>
+        <div>
+            <h2><%= workshop.name %></h2>
+            <p><%= workshop.description %></p>
+            <ul>
+                <% workshop.schedule.forEach(session => { %>
+                    <li>Date: <%= new Date(session.date).toLocaleDateString() %> at <%= session.time %>, Available Slots: <%= session.availableSlots %></li>
+                <% }) %>
+            </ul>
+        </div>
+    <% }) %>
+    <a href="/">Back to Home</a>
+</body>
+</html>

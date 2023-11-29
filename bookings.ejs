@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Bookings</title>
+</head>
+<body>
+    <header>
+        <h1>Bookings</h1>
+    </header>
+    <main>
+        <div class="content">
+            <h2>Bookings List</h2>
+            <ul>
+                <% bookings.forEach(booking => { %>
+                    <li>
+                        <p><strong>Name:</strong> <%= booking.name %></p>
+                        <p><strong>Date:</strong> <%= booking.date.toISOString().split('T')[0] %></p>
+                        <p><strong>Time:</strong> <%= booking.time %></p>
+                        <p><strong>Payment:</strong> <%= booking.payment %> Euros</p>
+                        <p><strong>Workshop:</strong> <%= booking.workshop %></p> 
+                        <a href="/delete-booking/<%= booking._id %>">Delete</a>
+                        <a href="/modify-booking/<%= booking._id %>">Modify</a>
+                    </li>
+                <% }); %>
+            </ul>
+        </div>
+    </main>
+</body>
+</html>

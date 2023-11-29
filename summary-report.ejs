@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Summary Report</title>
+</head>
+<body>
+    <header>
+        <h1>Summary Report</h1>
+    </header>
+    <main>
+        <div class="form-container">
+            <h2>Report for User: <%= name %></h2>
+            <h3>Bookings within Date Range:</h3>
+            <p>Start Date: <%= startDate %></p>
+            <p>End Date: <%= endDate %></p>
+            <ul>
+                <% bookings.forEach(function(booking) { %>
+                    <li>
+                        <strong>Name:</strong> <%= booking.name %><br>
+                        <strong>Date:</strong> <%= booking.date %><br>
+                        <strong>Time:</strong> <%= booking.time %><br>
+                        <strong>Payment:</strong> <%= booking.payment %> USD<br><br>
+                    </li>
+                <% }); %>
+            </ul>
+            <a href="/">Back to Home</a>
+        </div>
+    </main>
+</body>
+</html>
